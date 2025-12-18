@@ -3,226 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🎄 Diana's 2025 跨年終極 App</title>
+    <title>🎄 Diana's 2025 Travel App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        body { font-family: 'Noto+Sans+TC', sans-serif; background: #fdfaf6; color: #333; }
-        .day-section { margin-bottom: 35px; }
-        .day-title { background: linear-gradient(90deg, #c0392b, #e74c3c); color: white; padding: 10px 25px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 15px; font-size: 16px; box-shadow: 0 4px 12px rgba(192, 57, 43, 0.2); }
-        .card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 15px; border: 1px solid #f1f1f1; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .card-header { padding: 18px 20px 5px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .card-body { padding: 0 20px 18px 20px; }
-        .time-tag { font-size: 11px; font-weight: bold; color: #c0392b; background: #fee2e2; padding: 2px 8px; border-radius: 4px; }
-        .action-btns { border-top: 1px solid #f8f9fa; display: flex; background: #fafbfc; }
-        .action-btn { flex: 1; padding: 14px; text-align: center; font-size: 12px; font-weight: bold; color: #555; transition: 0.2s; }
-        .action-btn:not(:last-child) { border-right: 1px solid #f1f1f1; }
-        .action-btn i { color: #3498db; margin-right: 5px; }
-        .action-btn.nav-btn i { color: #e67e22; }
-        .booking-bar { background: #1e3a8a; color: white; padding: 15px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; cursor: pointer; }
-        .editable { outline: none; }
-        .editable:focus { background: #fff9db; border-radius: 4px; }
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(15px); border-top: 1px solid #eee; display: flex; justify-content: space-around; padding: 15px; z-index: 1000; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); }
-        .iu-vibe { border-left: 4px solid #a29bfe; padding-left: 10px; margin-top: 10px; font-style: italic; color: #6c5ce7; font-size: 12px; }
+        :root { --main-bg: #fcfaf7; --accent-red: #c0392b; --iu-purple: #a29bfe; }
+        body { font-family: 'Noto+Sans+TC', sans-serif; background: var(--main-bg); }
+        
+        /* Tab Switching */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Timeline Design */
+        .timeline-item { position: relative; padding-left: 30px; margin-bottom: 25px; }
+        .timeline-item::before { content: ''; position: absolute; left: 10px; top: 5px; bottom: -25px; width: 2px; background: #eee; }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot { position: absolute; left: 4px; top: 6px; width: 14px; height: 14px; background: var(--accent-red); border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        .card { background: white; border-radius: 18px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f1f1; }
+        .editable { outline: none; transition: 0.3s; }
+        .editable:focus { background: #fff9db; padding: 2px 4px; border-radius: 4px; }
+        
+        /* Nav */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); border-top: 1px solid #eee; display: flex; justify-content: space-around; padding: 12px 0 25px 0; z-index: 1000; }
+        .nav-btn { color: #aaa; font-size: 10px; text-align: center; }
+        .nav-btn.active { color: var(--accent-red); font-weight: bold; }
+        
+        /* Map Section */
+        .map-card { background: #e0f2fe; color: #0369a1; border-radius: 15px; padding: 15px; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
     </style>
 </head>
 <body class="pb-32">
 
-    <header class="p-8 pt-20 bg-white border-b relative">
-        <h1 class="text-2xl font-bold tracking-tight text-slate-800">2025 歐亞快閃精準執行表 ❄️</h1>
-        <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Analyst Diana's Grand Tour</p>
-        <div class="absolute top-10 right-8 text-red-500 text-4xl opacity-20"><i class="fas fa-snowflake"></i></div>
+    <header class="p-8 pt-16 bg-white shadow-sm flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold">Diana's 2025 ✈️</h1>
+            <p class="text-[10px] text-gray-400 tracking-widest uppercase">Precision & Aesthetics</p>
+        </div>
+        <div class="text-red-500 text-2xl"><i class="fas fa-snowflake"></i></div>
     </header>
 
     <main class="p-5">
 
-        <div class="booking-bar mb-6" onclick="window.open('https://www.oebb.at/en/')">
-            <div class="flex items-center gap-3">
-                <i class="fas fa-train text-xl text-yellow-400"></i>
-                <div>
-                    <p class="font-bold text-sm">ÖBB 奧地利國鐵訂票</p>
-                    <p class="text-[10px] opacity-70">Salzburg 交通必備</p>
+        <section id="itinerary" class="tab-content active">
+            
+            <div class="mb-6 flex justify-between items-center"><h2 class="font-bold text-lg text-red-700">12/25 (四) 薩爾斯堡</h2><span class="text-xs text-blue-400">🌡️ 2°C</span></div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">06:50 - 09:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d1-1">抵達維也納 ➡️ 轉火車</h3>
+                    <p class="text-xs text-gray-500 mt-1">ÖBB Railjet 往薩堡。記得在機場先吃早餐，今天市區店少。</p>
                 </div>
             </div>
-            <i class="fas fa-external-link-alt text-xs"></i>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">12/25 (四) 薩爾斯堡：聖誕首站</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">14:00</span><h3 class="font-bold text-gray-800">薩爾斯堡主教座堂</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c1">莫札特受洗處。12/25 有大彌撒，身為合唱團員絕對要感受現場的人聲共鳴。市集熱紅酒杯子可以收集！</p>
-                    <div class="iu-vibe">IU 感穿搭：米白大衣 + 暖色圍巾，在教堂前拍出清新冷冽感。</div>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Salzburg+Cathedral')"><i class="fas fa-location-arrow"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.christkindlmarkt.co.at/')"><i class="fas fa-candy-cane"></i>市集資訊</div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">12:00 - 14:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d1-2">飯店 Check-in & 午餐</h3>
+                    <p class="text-xs text-gray-500 mt-1 italic">薩堡市區放空，享受第一份歐洲空氣。</p>
                 </div>
             </div>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">12/26 (五) 國王湖：冰雪仙境</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">全天</span><h3 class="font-bold text-gray-800">國王湖 Königssee</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c2">搭 840 巴士轉 841。冬天船只開到紅頂教堂，雪山環繞的靜謐感超適合 INTJ 找回能量。必拍紅頂教堂。</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Königssee')"><i class="fas fa-location-arrow"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.berchtesgaden.de/en/nature/lake-koenigssee')"><i class="fas fa-info-circle"></i>船班</div>
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background: #2d5a27"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">14:00 - 18:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d1-3">主教座堂聖誕市集</h3>
+                    <p class="text-xs text-gray-500 mt-1">必喝熱紅酒！順便聽教堂彌撒合唱。</p>
                 </div>
             </div>
-        </div>
 
-        <div class="day-section">
-            <div class="day-title">12/27 (六) 因斯布魯克：高山美學</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">全天</span><h3 class="font-bold text-gray-800">Innsbruck 北山纜車</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c3">RJX 火車 2h 直達。北山纜車直衝 2256m，看阿爾卑斯山脈全景。這種從城市到山巔的高效率很符合分析師邏輯。</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Nordkette+Innsbruck')"><i class="fas fa-location-arrow"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://nordkette.com/en/')"><i class="fas fa-mountain"></i>纜車預約</div>
+            <div class="mt-10 mb-6 flex justify-between items-center"><h2 class="font-bold text-lg text-red-700">12/30 (二) 辛特拉一日遊</h2></div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">08:00 - 11:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d6-1">辛特拉：佩納宮 (預約最早場)</h3>
+                    <p class="text-xs text-gray-500 mt-1">分析師攻略：一定要早，不然會排隊到崩潰。Bolt 直達門口。</p>
                 </div>
             </div>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">12/28 (日) CK 小鎮：波希米亞</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">全天</span><h3 class="font-bold text-gray-800">Český Krumlov</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c4">搭 CK Shuttle。洞穴餐廳 Krčma v Šatlavské 記得預約。看斗篷橋夕陽。捷克啤酒一定要點！</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Krčma+v+Šatlavské')"><i class="fas fa-utensils"></i>餐廳導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.ckshuttle.cz/')"><i class="fas fa-bus"></i>訂接駁</div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">13:30 - 16:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d6-2">雷加來納宮 (地底深井)</h3>
+                    <p class="text-xs text-gray-500 mt-1">探索神秘旋轉井，IU 的迷幻氛圍即視感。</p>
                 </div>
             </div>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">12/29 (一) 往里斯本：音樂靈魂</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">21:00</span><h3 class="font-bold text-gray-800">Lisboa em fado</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c5">薩堡 ➡️ 慕尼黑 ✈️ 里斯本。晚上聽 Fado，那種充滿張力的情緒價值，學音樂的妳一定會愛。</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Lisboa+em+fado')"><i class="fas fa-location-arrow"></i>導航</div>
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background: #e67e22"></div>
+                <div class="card">
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">17:00 - 19:00</span>
+                    <h3 class="font-bold text-sm editable" contenteditable="true" id="d6-3">羅卡角 Cabo da Roca</h3>
+                    <p class="text-xs text-gray-500 mt-1 italic">陸止於此，海始於斯。看夕陽落入大西洋。</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="day-section">
-            <div class="day-title">12/30 (二) 辛特拉：童話邊境</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">09:00</span><h3 class="font-bold text-gray-800">佩納宮 & 雷加來納宮</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c6">Sintra 一日遊。雷加來納宮的地底迴旋深井超有儀式感。晚餐 Zubir 烤雞補給體力。</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Quinta+da+Regaleira')"><i class="fas fa-location-arrow"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://bilheteira.parquesdesintra.pt/')"><i class="fas fa-ticket-alt"></i>預約門票</div>
+        <section id="maps" class="tab-content">
+            <h2 class="font-bold text-xl mb-4 text-slate-800">📍 Google Maps 專區</h2>
+            
+            <div class="bg-blue-600 text-white p-5 rounded-3xl mb-6 shadow-lg shadow-blue-100" onclick="window.open('https://www.google.com/maps/@/data=!3m1!4b1!4m3!11m2!2shA6T1vR2Su-Dk4oD0X0XmQ!3e3')">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="font-bold">開啟我的 Google Maps 清單</p>
+                        <p class="text-[10px] opacity-70 mt-1 italic">點擊直接跳轉妳的私人儲存清單</p>
+                    </div>
+                    <i class="fas fa-map-marked-alt text-3xl"></i>
                 </div>
             </div>
-        </div>
 
-        <div class="day-section">
-            <div class="day-title">12/31 (三) 跨年：往波多前進</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">16:30</span><h3 class="font-bold text-gray-800">Rede Express 巴士</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c7">上午里斯本貝倫區吃蛋塔。下午搭車往波多。晚上波多杜羅河畔跨年，迎接 2026！</p>
+            <div class="text-xs text-gray-400 mb-4 px-2 italic">快速導航：</div>
+            
+            <div class="grid grid-cols-1 gap-3">
+                <div class="map-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Salzburg+Cathedral')">
+                    <i class="fas fa-church text-xl"></i>
+                    <div class="flex-1"><p class="font-bold text-sm">薩爾斯堡主教座堂</p><p class="text-[10px]">聖誕市集 & 彌撒</p></div>
+                    <i class="fas fa-chevron-right opacity-30"></i>
                 </div>
-                <div class="action-btns">
-                    <div class="action-btn" onclick="window.open('https://www.rede-expressos.pt/en')"><i class="fas fa-shuttle-van"></i>訂車票</div>
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Pasteis+de+Belem')"><i class="fas fa-cookie"></i>蛋塔店導航</div>
+                <div class="map-card" style="background: #fef2f2; color: #991b1b;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Krčma+v+Šatlavské+ulici')">
+                    <i class="fas fa-utensils text-xl"></i>
+                    <div class="flex-1"><p class="font-bold text-sm">CK 洞穴餐廳</p><p class="text-[10px]">Krčma v Šatlavské</p></div>
+                    <i class="fas fa-chevron-right opacity-30"></i>
+                </div>
+                <div class="map-card" style="background: #fdfaf1; color: #854d0e;" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Pasteis+de+Belem')">
+                    <i class="fas fa-cookie-bite text-xl"></i>
+                    <div class="flex-1"><p class="font-bold text-sm">貝倫區蛋塔店</p><p class="text-[10px]">里斯本創始店</p></div>
+                    <i class="fas fa-chevron-right opacity-30"></i>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="day-section">
-            <div class="day-title">01/01-02 波多：最美轉角</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">慢活</span><h3 class="font-bold text-gray-800">波多市區 & 杜羅河谷</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c8">元旦景點沒開就去海邊看日落。01/02 補去 Lello 書店 (必訂票) 和阿瑪斯教堂拍藍瓷牆。</p>
-                    <div class="iu-vibe">阿瑪斯教堂這面牆超好拍，記得穿深色衣服才顯色！</div>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Capela+das+Almas+Porto')"><i class="fas fa-location-arrow"></i>藍瓷牆導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.livrarialello.pt/en/store/ticket-voucher')"><i class="fas fa-book"></i>書店票</div>
-                </div>
+        <section id="tools" class="tab-content">
+            <h2 class="font-bold text-xl mb-4 text-slate-800">💼 工具 & 預約</h2>
+            <div class="card mb-4 bg-slate-900 text-white">
+                <h4 class="text-xs font-bold text-gray-400">ÖBB 官方訂票</h4>
+                <button class="w-full mt-2 bg-blue-600 p-3 rounded-xl text-sm font-bold" onclick="window.open('https://www.oebb.at/en/')">開啟 ÖBB 官網</button>
             </div>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">01/03 (六) 馬德里：皇室盛宴</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">20:30</span><h3 class="font-bold text-gray-800">La Sanabresa 晚餐</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c9">波多 ✈️ 馬德里。下午馬德里皇宮與普拉多。晚餐這家超經典，點開心果巴斯克絕對不後悔！</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=La+Sanabresa+Madrid')"><i class="fas fa-utensils"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.patrimonionacional.es/en/visita/royal-palace-madrid')"><i class="fas fa-crown"></i>皇宮票</div>
-                </div>
+            <div class="card mb-4">
+                <h4 class="text-xs font-bold text-gray-400 mb-2">預約代號記錄 (點擊編輯)</h4>
+                <div class="editable text-sm py-1 border-b" contenteditable="true" id="code-ck">CK Shuttle: #123456</div>
+                <div class="editable text-sm py-1 border-b" contenteditable="true" id="code-sintra">Sintra: Pena 09:30</div>
+                <div class="editable text-sm py-1" contenteditable="true" id="code-hotel">Hotel: [飯店名稱/地址]</div>
             </div>
-        </div>
-
-        <div class="day-section">
-            <div class="day-title">01/05 (一) 阿布達比：快閃中東</div>
-            <div class="card">
-                <div class="card-header"><span class="time-tag">全天</span><h3 class="font-bold text-gray-800">清真寺 & 總統府</h3></div>
-                <div class="card-body">
-                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="c10">謝赫札耶德清真寺 ➡️ 亞伯拉罕之家 ➡️ 總統府燈光秀。注意服裝：長袖長褲不露趾。</p>
-                </div>
-                <div class="action-btns">
-                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Sheikh+Zayed+Grand+Mosque')"><i class="fas fa-location-arrow"></i>導航</div>
-                    <div class="action-btn" onclick="window.open('https://www.abrahamicfamilyhouse.ae/')"><i class="fas fa-place-of-worship"></i>亞伯拉罕預約</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center text-[10px] text-gray-300 mb-20">
-            ~ 所有的文字都可點擊修改，別忘了儲存 ~
-        </div>
+        </section>
 
     </main>
 
     <nav class="bottom-nav">
-        <button onclick="saveAll()" class="flex flex-col items-center">
-            <i class="fas fa-save text-xl text-green-500"></i>
-            <span class="text-[10px] mt-1">儲存數據</span>
-        </button>
-        <button onclick="location.href='mailto:?subject=Emergency'" class="flex flex-col items-center">
-            <i class="fas fa-phone-alt text-xl text-red-400"></i>
-            <span class="text-[10px] mt-1">緊急備份</span>
-        </button>
-        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center text-gray-400">
-            <i class="fas fa-chevron-up text-xl"></i>
-            <span class="text-[10px] mt-1">回頂部</span>
-        </button>
+        <div class="nav-btn active" onclick="switchTab('itinerary', this)"><i class="fas fa-clock text-xl mb-1"></i><p>時間軸行程</p></div>
+        <div class="nav-btn" onclick="switchTab('maps', this)"><i class="fas fa-map-pin text-xl mb-1"></i><p>地圖清單</p></div>
+        <div class="nav-btn" onclick="switchTab('tools', this)"><i class="fas fa-briefcase text-xl mb-1"></i><p>工具預約</p></div>
+        <div class="nav-btn" onclick="saveAll()"><i class="fas fa-cloud-upload-alt text-xl mb-1 text-green-500"></i><p>儲存更新</p></div>
     </nav>
 
     <script>
-        const fields = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10'];
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        const ids = ['d1-1','d1-2','d1-3','d6-1','d6-2','d6-3','code-ck','code-sintra','code-hotel'];
         window.onload = () => {
-            fields.forEach(id => {
+            ids.forEach(id => {
                 const val = localStorage.getItem(id);
                 if (val) document.getElementById(id).innerHTML = val;
             });
         };
+
         function saveAll() {
-            fields.forEach(id => {
+            ids.forEach(id => {
                 localStorage.setItem(id, document.getElementById(id).innerHTML);
             });
-            alert('數據已更新！Diana 祝妳跨年玩得精確又開心！❄️✈️');
+            alert('數據已精確儲存！祝 Diana 旅途順利 ❄️');
         }
     </script>
 </body>
