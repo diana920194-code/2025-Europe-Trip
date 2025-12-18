@@ -3,175 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🎄 2025 跨年・精確手冊</title>
+    <title>🎄 2025 跨年・奢華導覽 App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
         body { font-family: 'Noto+Sans+TC', sans-serif; background: #fdfaf6; color: #333; }
-        .day-container { background: white; border-radius: 20px; margin-bottom: 24px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f1f1; }
-        .row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px dashed #eee; }
-        .row:last-child { border-bottom: none; }
-        .time { font-size: 11px; font-weight: bold; color: #a1a1a1; min-width: 45px; padding-top: 3px; }
-        .content { flex: 1; }
-        .title { font-size: 15px; font-weight: bold; color: #2d3436; }
-        .note { font-size: 12px; color: #636e72; margin-top: 2px; }
-        .editable { outline: none; transition: background 0.2s; }
-        .editable:focus { background: #fff9db; border-radius: 4px; }
+        .day-section { margin-bottom: 30px; }
+        .day-title { background: linear-gradient(90deg, #c0392b, #e74c3c); color: white; padding: 8px 20px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(192, 57, 43, 0.2); }
+        .card { background: white; border-radius: 20px; overflow: hidden; margin-bottom: 15px; border: 1px solid #f1f1f1; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .card-header { padding: 15px 20px 5px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .card-body { padding: 0 20px 15px 20px; }
+        .time-tag { font-size: 11px; font-weight: bold; color: #c0392b; background: #fee2e2; padding: 2px 8px; border-radius: 4px; }
+        .action-btns { border-top: 1px solid #f8f9fa; display: flex; background: #fafbfc; }
+        .action-btn { flex: 1; padding: 12px; text-align: center; font-size: 12px; font-weight: bold; color: #555; transition: 0.2s; }
+        .action-btn:first-child { border-right: 1px solid #f1f1f1; }
+        .action-btn i { color: #3498db; margin-right: 5px; }
+        .action-btn.nav-btn i { color: #e67e22; }
+        .booking-bar { background: #1e3a8a; color: white; padding: 15px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; cursor: pointer; }
+        .editable { outline: none; }
+        .editable:focus { background: #fff9db; }
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-top: 1px solid #eee; display: flex; justify-content: space-around; padding: 12px; z-index: 1000; }
-        .tag-transport { color: #3498db; }
-        .tag-food { color: #e17055; }
-        .tag-spot { color: #6c5ce7; }
     </style>
 </head>
 <body class="pb-24">
 
     <header class="p-8 pt-16 bg-white border-b relative">
-        <h1 class="text-2xl font-bold tracking-tight text-slate-800">2025 歐亞跨年 ❄️</h1>
-        <p class="text-xs text-slate-400 mt-1">分析師的完美執行表 | V5.0</p>
-        <div class="absolute top-10 right-8 text-4xl opacity-10"><i class="fas fa-snowflake"></i></div>
+        <div class="flex justify-between items-end">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-slate-800">2025 歐亞奢華跨年 ❄️</h1>
+                <p class="text-xs text-slate-400 mt-1">HSBC Credit Analyst ・ Diana 專屬</p>
+            </div>
+            <div class="text-red-500 text-3xl"><i class="fas fa-snowflake"></i></div>
+        </div>
     </header>
 
     <main class="p-4">
 
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-calendar-day mr-1"></i> 12/25 (四) 薩爾斯堡</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">06:50</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r1-t">抵達維也納 (VIE)</div>
-                    <div class="note editable" contenteditable="true" id="r1-n">記得拿行李，找 ÖBB 車站</div>
+        <div class="booking-bar" onclick="window.open('https://www.oebb.at/en/')">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-ticket-alt text-xl"></i>
+                <div>
+                    <p class="font-bold text-sm">ÖBB 官方訂票系統</p>
+                    <p class="text-[10px] opacity-70">點此跳轉預訂奧地利火車</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="time">09:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r2-t"><i class="fas fa-train tag-transport"></i> 往薩爾斯堡火車</div>
-                    <div class="note editable" contenteditable="true" id="r2-n">車程約 2.5 - 3h。聖誕節超市不開，車上喝水。</div>
+            <i class="fas fa-chevron-right text-xs"></i>
+        </div>
+
+        <div class="day-section">
+            <div class="day-title">12/25 (四) 薩爾斯堡 Arrival</div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="time-tag">14:00</span>
+                    <h3 class="font-bold text-gray-800">薩爾斯堡主教座堂</h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">14:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r3-t"><i class="fas fa-tree tag-spot"></i> 主教座堂聖誕市集</div>
-                    <div class="note editable" contenteditable="true" id="r3-n">必吃：熱紅酒、炸蘋果圈。12/25 有大彌撒。</div>
+                <div class="card-body">
+                    <p class="text-xs text-gray-500 italic mb-2">Mozart's Place of Baptism</p>
+                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="d1-intro">莫札特受洗的地點。12/25 有節慶彌撒，教堂內的聲學效果對合唱團員來說是震撼級的體驗。</p>
+                </div>
+                <div class="action-btns">
+                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Salzburg+Cathedral')"><i class="fas fa-location-arrow"></i>導航</div>
+                    <div class="action-btn" onclick="window.open('https://www.salzburger-dom.at/en/')"><i class="fas fa-info-circle"></i>官網</div>
                 </div>
             </div>
         </div>
 
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-plane-departure mr-1"></i> 12/29 (一) 飛往里斯本</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">08:30</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r4-t">出發往慕尼黑機場</div>
-                    <div class="note editable" contenteditable="true" id="r4-n">薩堡火車 ➡️ 慕尼黑 Hbf ➡️ 機場</div>
+        <div class="day-section">
+            <div class="day-title">12/26 (五) 仙境湖泊國王湖</div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="time-tag">全天一日遊</span>
+                    <h3 class="font-bold text-gray-800">國王湖 Königssee</h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">12:50</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r5-t">慕尼黑 ✈️ 里斯本</div>
-                    <div class="note editable" contenteditable="true" id="r5-n">飛行時間約 3h 25m。抵達後去飯店。</div>
+                <div class="card-body">
+                    <p class="text-xs text-gray-500 italic mb-2">Germany's Most Beautiful Lake</p>
+                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="d2-intro">搭 840 巴士轉 841。冬天湖面平靜如鏡，紅頂教堂在雪景中像極了 IU 畫報現場，極度治癒。</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">20:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r6-t"><i class="fas fa-utensils tag-food"></i> Flor de lisboa 晚餐</div>
-                    <div class="note editable" contenteditable="true" id="r6-n">飯店附近。之後聽 Fado: Lisboa em fado。</div>
+                <div class="action-btns">
+                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Königssee')"><i class="fas fa-location-arrow"></i>導航</div>
+                    <div class="action-btn" onclick="window.open('https://www.seenschifffahrt.de/en/koenigssee/')"><i class="fas fa-ship"></i>船班表</div>
                 </div>
             </div>
         </div>
 
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-map-marked-alt mr-1"></i> 12/30 (二) 辛特拉一日遊</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">09:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r7-t">佩納宮 (需先訂票)</div>
-                    <div class="note editable" contenteditable="true" id="r7-n">建議搭 Bolt 避開人群。</div>
+        <div class="day-section">
+            <div class="day-title">12/27 (六) 阿爾卑斯之都</div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="time-tag">全天一日遊</span>
+                    <h3 class="font-bold text-gray-800">因斯布魯克 Innsbruck</h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">13:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r8-t">雷加來納宮</div>
-                    <div class="note editable" contenteditable="true" id="r8-n">地底迴旋深井，需排隊。</div>
+                <div class="card-body">
+                    <p class="text-xs text-gray-500 italic mb-2">Capitol of the Alps</p>
+                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="d3-intro">搭 RJX 火車 2 小時。必搭「北山纜車」，20 分鐘讓你從市區置身雲海之上，看整座阿爾卑斯山脈。</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">16:30</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r9-t">羅卡角/懸崖小鎮</div>
-                    <div class="note editable" contenteditable="true" id="r9-n">看歐亞大陸最西端夕陽。</div>
+                <div class="action-btns">
+                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Nordkette+Cable+Car')"><i class="fas fa-location-arrow"></i>導航</div>
+                    <div class="action-btn" onclick="window.open('https://nordkette.com/en/')"><i class="fas fa-mountain"></i>纜車票</div>
                 </div>
             </div>
         </div>
 
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-glass-cheers mr-1"></i> 12/31 (三) 跨年 ➡️ 波多</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">上午</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r10-t">里斯本市區漫步</div>
-                    <div class="note editable" contenteditable="true" id="r10-n">Tram 28、觀景台、貝倫區蛋塔。</div>
+        <div class="day-section">
+            <div class="day-title">12/28 (日) 波希米亞古鎮</div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="time-tag">全天一日遊</span>
+                    <h3 class="font-bold text-gray-800">CK 小鎮 (捷克)</h3>
                 </div>
-            </div>
-            <div class="row">
-                <div class="time">16:30</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r11-t"><i class="fas fa-bus tag-transport"></i> Rede Express 往波多</div>
-                    <div class="note editable" contenteditable="true" id="r11-n">19:45 抵達 Campanha。飯店附近跨年。</div>
+                <div class="card-body">
+                    <p class="text-xs text-gray-500 italic mb-2">UNESCO World Heritage</p>
+                    <p class="text-sm text-gray-600 editable" contenteditable="true" id="d4-intro">建議搭 CK Shuttle 省力。洞穴餐廳（Krčma v Šatlavské）務必先訂位，大火烤肉配黑啤是極致享受。</p>
                 </div>
-            </div>
-        </div>
-
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-crown mr-1"></i> 01/03 (六) 馬德里</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">08:20</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r12-t">波多 ✈️ 馬德里</div>
-                    <div class="note editable" contenteditable="true" id="r12-n">10:40 抵達。下午看馬德里皇宮。</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time">20:30</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r13-t"><i class="fas fa-utensils tag-food"></i> La Sanabresa 晚餐</div>
-                    <div class="note editable" contenteditable="true" id="r13-n">必吃：烤蘑菇、開心果巴斯克、Sangria。</div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="text-sm font-bold text-red-600 mb-3 ml-2"><i class="fas fa-mosque mr-1"></i> 01/05 (一) 阿布達比</h2>
-        <div class="day-container">
-            <div class="row">
-                <div class="time">07:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r14-t">抵達阿布達比</div>
-                    <div class="note editable" contenteditable="true" id="r14-n">拿免費 SIM 卡、吃早餐。</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time">10:00</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r15-t">謝赫札耶德清真寺</div>
-                    <div class="note editable" contenteditable="true" id="r15-n">必看導覽。注意服裝需求。</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time">19:30</div>
-                <div class="content">
-                    <div class="title editable" contenteditable="true" id="r16-t">回機場 ✈️ 台北</div>
-                    <div class="note editable" contenteditable="true" id="r16-n">21:25 飛機起飛。</div>
+                <div class="action-btns">
+                    <div class="action-btn nav-btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Krčma+v+Šatlavské+ulici')"><i class="fas fa-utensils"></i>餐廳導航</div>
+                    <div class="action-btn" onclick="window.open('https://www.ckshuttle.cz/')"><i class="fas fa-shuttle-van"></i>訂接駁車</div>
                 </div>
             </div>
         </div>
 
         <div class="text-center text-xs text-gray-300 mt-10 mb-20 italic">
-            每個格子都可以點擊修改。
+            ~ 每個段落皆可點擊修改並儲存 ~
         </div>
 
     </main>
@@ -181,32 +134,25 @@
             <i class="fas fa-cloud-upload-alt text-xl text-green-500"></i>
             <span class="text-[10px] mt-1">儲存變更</span>
         </button>
-        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center">
-            <i class="fas fa-chevron-up text-xl text-gray-400"></i>
+        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center text-gray-400">
+            <i class="fas fa-chevron-up text-xl"></i>
             <span class="text-[10px] mt-1">回頂部</span>
         </button>
     </nav>
 
     <script>
-        // 生成所有 ID 清單
-        const fields = [];
-        for(let i=1; i<=16; i++) {
-            fields.push(`r${i}-t`, `r${i}-n`);
-        }
-
+        const fields = ['d1-intro', 'd2-intro', 'd3-intro', 'd4-intro'];
         window.onload = () => {
             fields.forEach(id => {
                 const savedValue = localStorage.getItem(id);
                 if (savedValue) document.getElementById(id).innerHTML = savedValue;
             });
         };
-
         function saveAll() {
             fields.forEach(id => {
-                const value = document.getElementById(id).innerHTML;
-                localStorage.setItem(id, value);
+                localStorage.setItem(id, document.getElementById(id).innerHTML);
             });
-            alert('這份報告已由 Credit AnalystDiana 審核儲存！✅');
+            alert('行程已保存！祝 Diana 旅途愉快 ✨');
         }
     </script>
 </body>
