@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎄 IU風・2025 跨年手冊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        :root { --main-bg: #fdfaf6; --iu-purple: #a29bfe; --xmas-red: #d63031; }
+        body { font-family: 'Noto+Sans+TC', sans-serif; background: var(--main-bg); color: #444; }
+        .app-card { background: white; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); margin-bottom: 20px; border: 1px solid #f1f1f1; }
+        .editable { outline: none; transition: background 0.3s; padding: 2px 5px; border-radius: 4px; }
+        .editable:focus { background: #fff9db; border-bottom: 2px solid #ffd43b; }
+        .btn-map { background: #f0f3f6; color: #3b82f6; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+        .bottom-nav { position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-radius: 25px; display: flex; justify-content: space-around; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; }
+        .nav-item { text-align: center; color: #a1a1a1; font-size: 10px; }
+        .nav-item.active { color: var(--xmas-red); }
+        .tag-status { font-size: 10px; padding: 2px 8px; border-radius: 6px; font-weight: bold; }
+    </style>
+</head>
+<body class="pb-32">
+
+    <header class="p-8 pt-16 bg-white rounded-b-[40px] shadow-sm mb-6">
+        <h1 class="text-2xl font-bold tracking-tight">你好，冒險者 ❄️</h1>
+        <p class="text-sm text-gray-400 mt-1">28歲的跨年：分析師的完美執行</p>
+        <div class="mt-4 flex gap-2">
+            <span class="tag-status bg-red-100 text-red-600">水瓶座 ♒</span>
+            <span class="tag-status bg-purple-100 text-purple-600">INTJ Mode 🧠</span>
+        </div>
+    </header>
+
+    <main class="px-5" id="app-content">
+        <div class="mb-4 flex justify-between items-end">
+            <h2 class="text-xl font-bold text-gray-800">12/25 薩爾斯堡</h2>
+            <span class="text-xs text-blue-400">🌡️ 2°C</span>
+        </div>
+
+        <div class="app-card p-5 relative">
+            <div class="flex justify-between mb-3">
+                <span class="tag-status bg-blue-50 text-blue-500">交通 🚆</span>
+                <button onclick="window.open('https://www.google.com/maps/search/Salzburg+HBF')" class="btn-map"><i class="fas fa-location-arrow"></i> 導航</button>
+            </div>
+            <div class="editable font-bold text-lg mb-1" contenteditable="true" id="d1-t1">06:50 抵達維也納 ➡️ 薩堡</div>
+            <div class="editable text-sm text-gray-500" contenteditable="true" id="d1-d1">搭乘 ÖBB RJX 火車。聖誕節當天超市全關，記得先買水！</div>
+        </div>
+
+        <div class="app-card p-5">
+            <div class="flex justify-between mb-3">
+                <span class="tag-status bg-green-50 text-green-500">景點 🏰</span>
+                <button onclick="window.open('https://www.google.com/maps/search/Salzburg+Cathedral')" class="btn-map"><i class="fas fa-location-arrow"></i> 導航</button>
+            </div>
+            <div class="editable font-bold text-lg mb-1" contenteditable="true" id="d1-t2">薩爾斯堡主教座堂市集</div>
+            <div class="editable text-sm text-gray-500" contenteditable="true" id="d1-d2">必吃：熱紅酒、炸蘋果圈。12/25 下午有大彌撒，適合聽合唱。</div>
+        </div>
+
+        <div class="mb-4 mt-10 flex justify-between items-end">
+            <h2 class="text-xl font-bold text-gray-800">12/31 里斯本 ➡️ 波多</h2>
+        </div>
+
+        <div class="app-card p-5 border-l-4 border-red-500">
+            <div class="editable font-bold text-lg mb-1" contenteditable="true" id="d31-t1">16:30 Rede Express 巴士</div>
+            <div class="editable text-sm text-gray-500 mb-3" contenteditable="true" id="d31-d1">前往波多 Campanha。跨年夜晚餐已看好飯店附近。</div>
+            <div class="p-3 bg-red-50 rounded-xl">
+                <p class="text-[10px] text-red-400 font-bold mb-1 underline">IU風推薦</p>
+                <p class="editable text-xs text-red-700" contenteditable="true" id="d31-iu">去聖露西亞觀景台看日出，那裡的藍色瓷磚超級美！</p>
+            </div>
+        </div>
+
+        <div class="app-card p-5 border-dashed border-2 border-gray-200 bg-transparent shadow-none">
+            <div class="text-center text-gray-400 py-4">
+                <i class="fas fa-plus-circle text-xl mb-2"></i>
+                <p class="text-xs">點擊此處隨意新增筆記...</p>
+                <div class="editable mt-2 text-sm text-left" contenteditable="true" id="custom-note"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active"><i class="fas fa-calendar-alt text-xl"></i><p>行程</p></div>
+        <div class="nav-item" onclick="alert('預算餘額：€2,250\n(點擊文字可直接在頁面修改)')"><i class="fas fa-wallet text-xl"></i><p>帳目</p></div>
+        <div class="nav-item" onclick="location.href='tel:112'"><i class="fas fa-phone-alt text-xl"></i><p>急難</p></div>
+        <div class="nav-item" onclick="saveData()"><i class="fas fa-save text-xl text-green-500"></i><p>儲存</p></div>
+    </nav>
+
+    <script>
+        // 自動儲存邏輯
+        const fields = ['d1-t1', 'd1-d1', 'd1-t2', 'd1-d2', 'd31-t1', 'd31-d1', 'd31-iu', 'custom-note'];
+        
+        // 頁面載入時讀取舊資料
+        window.onload = () => {
+            fields.forEach(id => {
+                const savedValue = localStorage.getItem(id);
+                if (savedValue) document.getElementById(id).innerHTML = savedValue;
+            });
+        };
+
+        // 點擊儲存按鈕或離開時儲存
+        function saveData() {
+            fields.forEach(id => {
+                const value = document.getElementById(id).innerHTML;
+                localStorage.setItem(id, value);
+            });
+            alert('行程已更新！這份 App 現在完全屬於妳的最新狀態了 ✨');
+        }
+    </script>
+</body>
+</html>
