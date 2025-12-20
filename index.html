@@ -3,231 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🎄 Diana's 2025 終極跨年執行 App</title>
+    <title>🎄 Diana's 2025 跨年終極手冊</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        :root { --accent-red: #c0392b; --soft-bg: #fdfaf6; }
-        body { font-family: 'Noto+Sans+TC', sans-serif; background: var(--soft-bg); color: #333; }
+        :root { --accent-red: #c0392b; --iu-purple: #a29bfe; --bg: #fdfaf6; }
+        body { font-family: 'Noto+Sans+TC', sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
         .tab-content { display: none; padding-bottom: 120px; }
         .tab-content.active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .day-label { background: var(--accent-red); color: white; padding: 6px 15px; border-radius: 12px; font-weight: bold; font-size: 14px; margin: 25px 0 15px 0; display: inline-block; box-shadow: 0 4px 10px rgba(192, 57, 43, 0.2); }
-        .timeline-item { position: relative; padding-left: 25px; border-left: 1px solid #ddd; margin-left: 10px; padding-bottom: 25px; }
-        .timeline-dot { position: absolute; left: -6px; top: 6px; width: 12px; height: 12px; background: var(--accent-red); border-radius: 50%; border: 3px solid white; }
-        .card { background: white; border-radius: 20px; padding: 18px; border: 1px solid #f0f0f0; box-shadow: 0 6px 15px rgba(0,0,0,0.03); }
-        .time-text { font-size: 11px; font-weight: bold; color: var(--accent-red); margin-bottom: 4px; display: block; }
-        .strategy-box { background: #f1f5f9; border-radius: 10px; padding: 10px; margin-top: 8px; font-size: 12px; border-left: 4px solid #64748b; }
+        .day-label { background: var(--accent-red); color: white; padding: 6px 15px; border-radius: 50px; font-weight: bold; font-size: 14px; margin: 30px 0 15px 0; display: inline-block; box-shadow: 0 4px 10px rgba(192,57,43,0.2); }
+        .timeline-item { position: relative; padding-left: 20px; border-left: 1px solid #ddd; margin-left: 10px; padding-bottom: 25px; }
+        .timeline-dot { position: absolute; left: -6px; top: 8px; width: 11px; height: 11px; background: var(--accent-red); border-radius: 50%; border: 2px solid white; }
+        .card { background: white; border-radius: 20px; padding: 20px; border: 1px solid #eee; box-shadow: 0 6px 15px rgba(0,0,0,0.03); }
+        .time-tag { font-size: 11px; font-weight: bold; color: var(--accent-red); margin-bottom: 5px; display: block; }
+        .strategy-box { background: #f8fafc; border-left: 4px solid #334155; padding: 10px; margin-top: 10px; font-size: 12px; border-radius: 0 8px 8px 0; }
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(15px); border-top: 1px solid #eee; display: flex; justify-content: space-around; padding: 12px 0 35px 0; z-index: 1000; }
         .nav-item { color: #aaa; text-align: center; font-size: 10px; flex: 1; }
         .nav-item.active { color: var(--accent-red); font-weight: bold; }
         .editable { outline: none; }
-        .guide-item { background: white; border-radius: 15px; margin-bottom: 12px; border: 1px solid #eee; overflow: hidden; }
-        .guide-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: bold; }
-        .guide-body { padding: 0 15px 15px 15px; display: none; font-size: 13px; line-height: 1.6; color: #555; border-top: 1px solid #fafafa; }
-        .guide-body.open { display: block; }
+        .iu-tip { color: var(--iu-purple); font-weight: bold; font-size: 12px; margin-top: 10px; display: block; }
     </style>
 </head>
-<body class="pb-20">
+<body>
 
     <header class="p-8 pt-16 bg-white border-b flex justify-between items-end">
         <div>
-            <h1 class="text-2xl font-bold text-slate-800">Diana's 2025 Grand Tour ❄️</h1>
-            <p class="text-[10px] text-gray-400 tracking-widest uppercase mt-1">Full Precision Itinerary</p>
+            <h1 class="text-2xl font-bold text-slate-800">Diana's 2025 跨年執行手冊 ❄️</h1>
+            <p class="text-[10px] text-gray-400 tracking-widest uppercase mt-1">Full Text Accuracy Mode</p>
         </div>
-        <div class="text-red-600 text-3xl opacity-20"><i class="fas fa-snowflake"></i></div>
+        <div class="text-red-500 text-3xl opacity-20"><i class="fas fa-snowflake"></i></div>
     </header>
 
     <main class="p-4">
         <section id="itinerary" class="tab-content active">
             
-            <div class="day-label">12/26 (五) Innsbruck：阿爾卑斯 ROI</div>
+            <div class="day-label">12/26 (五) Innsbruck</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">10:45 - 13:00</span>
-                <h3 class="font-bold text-sm">The Top of Innsbruck (Nordkette) 🚠</h3>
-                <p class="text-xs text-gray-600 mt-1">策略：一到站就直衝纜車，趁早晨光線拍出阿爾卑斯山的震撼感。€52 的大景，絕對是妳這趟旅程的最高 ROI 產出。</p>
+                <span class="time-tag">10:45 - 13:00</span>
+                <h3 class="font-bold text-base">雲端漫步：The Top of Innsbruck (Nordkette) 🚠</h3>
+                <p class="text-sm mt-2">• 策略： 一到站就直衝纜車，趁早晨光線拍出阿爾卑斯山的震撼感。<br>• 產出： €52 的大景，絕對是妳這趟旅程的最高 ROI 產出。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">13:00 - 14:30</span>
-                <h3 class="font-bold text-sm">老城區 Imbiss 補血 🥨</h3>
-                <p class="text-xs text-gray-600 mt-1">地點： Kiachl-Sigi 炸麵糰或香腸攤。看著雪山背景，享受這份熱騰騰的在地美味。</p>
+                <span class="time-tag">13:00 - 14:30</span>
+                <h3 class="font-bold text-base">老城區 Imbiss 補血 🥨</h3>
+                <p class="text-sm mt-2">• 地點： 逛逛 Kiachl-Sigi 炸麵糰，或者找家喜歡的香腸攤。<br>• 悠閒感： 既然不用趕去滑雪場，妳可以坐在長椅上，看著雪山背景，慢慢享受這份熱騰騰的在地美味。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">14:30 - 17:00</span>
-                <h3 class="font-bold text-sm">歷史細節 & 5D 電影 🏛️</h3>
-                <p class="text-xs text-gray-600 mt-1">活動：金屋頂博物館 (Golden Roof) 二樓看細節。隨後前往 Experience Tirol 體驗 5D 電影避寒。</p>
+                <span class="time-tag">14:30 - 15:30</span>
+                <h3 class="font-bold text-base">歷史細節：The Golden Roof Museum 🏛️</h3>
+                <p class="text-sm mt-2">• 活動： 刷卡進去參觀，從二樓看金瓦的細節。這裡人不多，環境有序，非常符合 INTJ 的舒適圈。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">17:00 - 19:00</span>
-                <h3 class="font-bold text-sm">瑪麗亞特蕾西亞大街夕陽 🛍️</h3>
-                <p class="text-xs text-gray-600 mt-1 italic">逛逛 Swarovski 旗艦店，或是找間咖啡廳寫寫這幾天的感言。隨後搭火車回薩爾斯堡。</p>
+                <span class="time-tag">15:30 - 17:00</span>
+                <h3 class="font-bold text-base">科技感沉浸：Experience Tirol 🎭</h3>
+                <p class="text-sm mt-2">• 理由： 下午外面開始變冷，這時候進去體驗 5D 電影泰完美了。這也是妳清單上很感興趣的點。</p>
+            </div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
+                <span class="time-tag">17:00 - 18:30</span>
+                <h3 class="font-bold text-base">最終留白：瑪麗亞特蕾西亞大街夕陽 🛍️</h3>
+                <p class="text-sm mt-2">• 活動： 這時候路燈會亮起，聖誕/元旦市集的氛圍最濃。妳可以逛逛 Swarovski 旗艦店，或是找間咖啡廳寫寫這幾天的感言。<br>• 19:00+ | 帶著回本的快感，搭火車回薩爾斯堡。</p>
             </div></div>
 
             <div class="day-label">12/29 (一) 抵達里斯本：悠閒模式</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">15:15 - 17:30</span>
-                <h3 class="font-bold text-sm">落地 ✈️ Check-in</h3>
-                <p class="text-xs text-gray-600 mt-1">搭地鐵前往 Imperador Hotel。飯店 Check-in 休息。</p>
-            </div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">19:00 - 22:00</span>
-                <h3 class="font-bold text-sm">海鮮飯 & 聖誕市集 🥘</h3>
-                <p class="text-xs text-gray-600 mt-1">晚餐：Flor de lisboa。飯後散步至愛德華七世公園逛聖誕市集。</p>
+                <span class="time-tag">15:15 - 19:00</span>
+                <h3 class="font-bold text-base">抵達 LIS ✈️ Check-in</h3>
+                <p class="text-sm mt-2">搭地鐵前往 Imperador Hotel。19:00 晚餐：Flor de lisboa (海鮮飯）。飯後前往愛德華七世公園逛聖誕市集(~22:00)。</p>
             </div></div>
 
-            <div class="day-label">12/30 (二) 辛特拉：浪漫懸崖</div>
+            <div class="day-label">12/30 (二) 辛特拉與浪漫懸崖小鎮</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">08:30 - 11:20</span>
-                <h3 class="font-bold text-sm">佩納宮 (Pena Palace) 🏰</h3>
-                <p class="text-xs text-gray-600 mt-1">火車到辛特拉後 Bolt 直達。彩色城堡拍照。當場買 10 歐花園票。</p>
+                <span class="time-tag">08:30 - 11:20</span>
+                <h3 class="font-bold text-base">佩納宮 (彩色城堡拍美照) 🏰</h3>
+                <p class="text-sm mt-2">飯店出發搭火車至 Sintra，隨後 Bolt 前往。當場買花園票 10 歐。10:00 入場。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">11:30 - 14:45</span>
-                <h3 class="font-bold text-sm">雷加來納宮 & 午餐 🌀</h3>
-                <p class="text-xs text-gray-600 mt-1">預約 11:30 入場。必看啟蒙井。隨後去 Piriquita 買枕頭餅 (Travesseiro)。</p>
+                <span class="time-tag">11:45 - 13:15</span>
+                <h3 class="font-bold text-base">雷加來納宮 (鑽地窖、走迷宮) 🌀</h3>
+                <p class="text-sm mt-2">已訂票：11:30-12:00 入場。體驗神祕螺旋井。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">15:00 - 18:30</span>
-                <h3 class="font-bold text-sm">世界盡頭 🌊 羅卡角</h3>
-                <p class="text-xs text-gray-600 mt-1 italic">Cabo da Roca ➡️ Azenhas do Mar 看懸崖小鎮夕陽。隨後返程吃 Zubir 烤雞。</p>
+                <span class="time-tag">13:30 - 15:00</span>
+                <h3 class="font-bold text-base">辛特拉午餐 + 甜點補給 🥧</h3>
+                <p class="text-sm mt-2">• 必做： 去 Piriquita 買 Travesseiro (枕頭餅)！這是辛特拉最有名的甜點，酥皮裡包著杏仁奶油餡，去羅卡角配著海景吃，那畫面泰美了。隔壁蛋塔外帶。</p>
+            </div></div>
+            <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
+                <span class="time-tag">16:30 - Sunset</span>
+                <h3 class="font-bold text-base">羅卡角 & Azenhas do Mar 夕陽 🌊</h3>
+                <p class="text-sm mt-2">「世界盡頭」看夕陽餘暉。隨後返回里斯本吃 Zubir 烤雞補體力。</p>
             </div></div>
 
-            <div class="day-label">12/31 (三) 里斯本 ➡️ 波多跨年</div>
+            <div class="day-label">12/31 (三) 里斯本經典 ➜ 波多跨年</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">08:30 - 12:30</span>
-                <h3 class="font-bold text-sm">阿爾法瑪區 & 貝倫區 🥧</h3>
-                <p class="text-xs text-gray-600 mt-1">28 號電車 ➡️ 聖露西亞觀景台。Cafe de garagem 喝咖啡。貝倫區買蛋塔拍修道院外觀。</p>
+                <span class="time-tag">08:30 - 12:30</span>
+                <h3 class="font-bold text-base">阿爾法瑪區 & 貝倫區巡禮 🚃</h3>
+                <p class="text-sm mt-2">28號電車 ➡️ 聖露西亞觀景台拍藍花磚牆。10:30 Cafe de garagem 喝咖啡。貝倫區買蛋塔拍修道院外觀。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">17:00 - 20:15</span>
-                <h3 class="font-bold text-sm">Rede Express 往波多 🚌</h3>
-                <p class="text-xs text-gray-600 mt-1">抵達波多 Campanhã 站，入住 Oca Oriental Hotel。</p>
+                <span class="time-tag">17:00 - 20:15</span>
+                <h3 class="font-bold text-base">Rede Express 往波多 🚌</h3>
+                <p class="text-sm mt-2">16:30 抵達 Sete Rios 站。20:15 抵達波多，入住 Oca Oriental Hotel。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot" style="background:#e67e22"></div><div class="card">
-                <span class="time-text">23:15 - 24:00</span>
-                <h3 class="font-bold text-sm">Fontainhas 跨年煙火 🎇</h3>
-                <p class="text-xs text-gray-600 mt-1 font-bold">步行 15 分鐘佔位。視野泰美了，能看四座橋與河面煙火！</p>
+                <span class="time-tag">23:15 - 00:00</span>
+                <h3 class="font-bold text-base">Miradouro das Fontainhas 跨年煙火 🎇</h3>
+                <p class="text-sm mt-2">走路 15 分鐘，這區人較少，可以同時看到四座大橋與河面煙火，視野泰美了！</p>
             </div></div>
 
-            <div class="day-label">01/01 (四) 波多：花磚巡禮 Relax</div>
+            <div class="day-label">01/01 (四) 波多：「藍色外牆」花磚巡禮</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">11:00 - 16:30</span>
-                <h3 class="font-bold text-sm">三大教堂 & 聖本圖車站 🎨</h3>
-                <p class="text-xs text-gray-600 mt-1">聖靈教堂 ➡️ 聖本圖車站 ➡️ 卡爾莫教堂。花街喝咖啡。</p>
-            </div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">16:30 - Sunset</span>
-                <h3 class="font-bold text-sm">Jardim do Morro 日落 🌅</h3>
-                <p class="text-xs text-gray-600 mt-1">路易一世大橋上層看夕陽。晚餐：Pregar Baixa (濕式牛排三明治)。</p>
+                <h3 class="font-bold text-base">元旦花磚之旅 (免門票) 🎨</h3>
+                <p class="text-sm mt-2">11:00 聖靈教堂 ➡️ 12:00 聖本圖車站 ➡️ 13:30 卡爾莫教堂 ➡️ 花街逛逛喝咖啡。16:30 路易一世大橋看日落。晚餐：Pregar Baixa (濕式牛排三明治)。</p>
             </div></div>
 
             <div class="day-label">01/02 (五) 波多：微醺尾聲</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">09:00 - 14:00</span>
-                <h3 class="font-bold text-sm">市場、書店、交易所宮 🏛️</h3>
-                <p class="text-xs text-gray-600 mt-1">Bolhão 市場 ➡️ 萊羅書店 ➡️ 證券交易所宮 (現場買票 14歐)。</p>
+                <h3 class="font-bold text-base">市場、書店、交易所宮 🏛️</h3>
+                <p class="text-sm mt-2">09:00 市場早餐 ➡️ 10:00 萊羅書店 ➡️ 11:30 教士塔登頂 ➡️ 14:00 證券交易所宮參觀阿拉伯大廳 (現場 14 歐)。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">17:45 - 20:00</span>
-                <h3 class="font-bold text-sm">酒莊品酒 & 海鮮飯 🍷</h3>
-                <p class="text-xs text-gray-600 mt-1">預約 Calem (28歐)。晚餐：Ora viva 海鮮飯。</p>
+                <span class="time-tag">17:45 - 20:00</span>
+                <h3 class="font-bold text-base">酒莊品酒 & 海鮮飯 🍷</h3>
+                <p class="text-sm mt-2">預約 Calem (28歐) 品酒 + Fado。20:00 Ora viva 海鮮飯。</p>
             </div></div>
 
             <div class="day-label">01/03 (六) 馬德里：熱量黃金線</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">13:15 - 14:30</span>
-                <h3 class="font-bold text-sm">烤蘑菇 & 市場 Tapas 🍄</h3>
-                <p class="text-xs text-gray-600 mt-1">午餐：Mesón del Champiñón + 聖米格爾市場。種類多又精緻。</p>
+                <span class="time-tag">13:15 - 16:30</span>
+                <h3 class="font-bold text-base">烤蘑菇 & 皇宮 🏛️</h3>
+                <p class="text-sm mt-2">Mesón del Champiñón + 聖米格爾市場。14:30 馬德里皇宮 (已訂票)。隨後去 San Ginés 吃沾巧克力油條。</p>
             </div></div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">14:30 - 20:30</span>
-                <h3 class="font-bold text-sm">皇宮、油條、普拉多 🎨</h3>
-                <p class="text-xs text-gray-600 mt-1">馬德里皇宮 ➡️ San Ginés 沾巧克力油條 ➡️ 普拉多博物館免費時段。晚餐：La Sanabresa。</p>
+                <span class="time-tag">18:00 - 20:30</span>
+                <h3 class="font-bold text-base">普拉多博物館 & 晚餐 🥘</h3>
+                <p class="text-sm mt-2">看博物館免費場次或麗池公園落日。晚餐：La Sanabresa。</p>
             </div></div>
 
-            <div class="day-label">01/04 (日) 馬德里：獨旅與採買</div>
+            <div class="day-label">01/04 (日) 馬德里：藝術採買</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">12:30 - 16:30</span>
-                <h3 class="font-bold text-sm">藝術 & 海鮮飯 🥘</h3>
-                <p class="text-xs text-gray-600 mt-1">索菲亞皇后博物館《格爾尼卡》 ➡️ Taberna el sur 單人海鮮飯。</p>
-            </div></div>
-            <div class="timeline-item"><div class="timeline-dot" style="background:#2980b9"></div><div class="card">
-                <span class="time-text">16:30 - 21:10</span>
-                <h3 class="font-bold text-sm">血拼伴手禮 ➜ 機場 ✈️</h3>
-                <p class="text-xs text-gray-600 mt-1">杜隆糖老店 Casa Mira ➡️ 橄欖油 La Chinata ➡️ 百貨超市海鮮罐頭。21:10 飛阿布達比。</p>
+                <h3 class="font-bold text-base">索菲亞博物館 ➡️ 最後採買 🛍️</h3>
+                <p class="text-sm mt-2">12:30 索菲亞看《格爾尼卡》。15:00 Taberna el sur 海鮮飯。採買：杜隆糖 (Casa Mira)、La Chinata 橄欖油、海鮮罐頭。21:10 飛阿布達比。</p>
             </div></div>
 
-            <div class="day-label">01/05 (一) 阿布達比：精準快閃</div>
+            <div class="day-label">01/05 (一) 阿布達比精準快閃</div>
             <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">09:00 - 14:00</span>
-                <h3 class="font-bold text-sm">大清真寺 & 亞伯拉罕之家 🕌</h3>
-                <p class="text-xs text-gray-600 mt-1">一開門衝清真寺拍仙氣照。隨後前往極簡幾何美感的亞伯拉罕之家。</p>
+                <h3 class="font-bold text-base">清真寺 ➡️ 亞伯拉罕 ➡️ 總統府 🕌</h3>
+                <p class="text-sm mt-2">09:00 清真寺拍仙氣照。12:00 亞伯拉罕之家。16:30 總統府看奢華裝飾 + 日落。18:30 燈光秀。19:00 衝機場。</p>
             </div></div>
-            <div class="timeline-item"><div class="timeline-dot"></div><div class="card">
-                <span class="time-text">16:30 - 19:40</span>
-                <h3 class="font-bold text-sm">總統府 & 燈光秀 🎆</h3>
-                <p class="text-xs text-gray-600 mt-1 italic">Qasr Al Watan 宮殿。18:30 燈光秀。隨後 Bolt 衝機場 21:25 起飛。</p>
-            </div></div>
-        </section>
 
-        <section id="guide" class="tab-content">
-            <h2 class="font-bold text-xl mb-4 text-slate-800">📖 深度百科與攻略</h2>
-            <div class="guide-item">
-                <div class="guide-header" onclick="toggleGuide(this)">🏔️ Innsbruck Nordkette<i class="fas fa-chevron-down"></i></div>
-                <div class="guide-body">€52 纜車票雖然貴，但登頂後俯瞰整座山脈的視野是無價的。建議 10:45 一到就衝，光線最透。</div>
-            </div>
-            <div class="guide-item">
-                <div class="guide-header" onclick="toggleGuide(this)">🌀 雷加來納宮 (Sintra)<i class="fas fa-chevron-down"></i></div>
-                <div class="guide-body">這不是普通的公園，是一個充滿神秘符號、迷宮、暗道的莊園。最有名的是螺旋啟蒙井。</div>
-            </div>
-            <div class="guide-item">
-                <div class="guide-header" onclick="toggleGuide(this)">🎇 Fontainhas (Porto)<i class="fas fa-chevron-down"></i></div>
-                <div class="guide-body">跨年煙火私藏點，避開里貝拉區的人擠人，這裡可以同時看到四座橋與河面煙火，視野全開。</div>
-            </div>
-            <div class="guide-item">
-                <div class="guide-header" onclick="toggleGuide(this)">🏛️ 亞伯拉罕之家 (Abu Dhabi)<i class="fas fa-chevron-down"></i></div>
-                <div class="guide-body">清真寺、教堂、猶太教堂的三合一。幾何極簡設計感極強，是非常理性的美學產出。</div>
-            </div>
         </section>
 
         <section id="maps" class="tab-content">
-            <h2 class="font-bold text-xl mb-4">📍 快速導航清單</h2>
-            <div class="card bg-blue-600 text-white mb-4" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Plaza+de+la+Marina+Española')">
-                <p class="font-bold">開啟 Google Maps 私人清單</p>
-                <p class="text-[10px] opacity-70 italic">在此連結可點開妳儲存好的 Pin 點</p>
+            <h2 class="font-bold text-xl mb-4">📍 Google Maps 執行導航</h2>
+            <div class="bg-blue-600 text-white p-6 rounded-3xl mb-4" onclick="window.open('https://maps.app.goo.gl/YourSharedLink')">
+                <div class="flex justify-between items-center">
+                    <div><p class="font-bold">開啟我的 Google Maps 專屬清單</p><p class="text-[10px] opacity-70">在此連結替換妳的私藏清單網址</p></div>
+                    <i class="fas fa-map-marked-alt text-3xl"></i>
+                </div>
             </div>
-            <div class="grid grid-cols-1 gap-2">
-                <div class="card flex justify-between text-xs" onclick="window.open('https://www.google.com/maps/search/Meson+del+Champiñon')"><span>馬德里烤蘑菇導航</span><i class="fas fa-map-marker-alt"></i></div>
-                <div class="card flex justify-between text-xs" onclick="window.open('https://www.google.com/maps/search/Sheikh+Zayed+Grand+Mosque')"><span>阿布達比大清真寺導航</span><i class="fas fa-map-marker-alt"></i></div>
-                <div class="card flex justify-between text-xs" onclick="window.open('https://www.google.com/maps/search/Miradouro+das+Fontainhas')"><span>波多跨年煙火觀景點</span><i class="fas fa-map-marker-alt"></i></div>
+            <div class="space-y-3">
+                <div class="card flex justify-between" onclick="window.open('https://www.google.com/maps/search/Meson+del+Champiñon')"><span>馬德里烤蘑菇導航</span><i class="fas fa-location-arrow text-blue-500"></i></div>
+                <div class="card flex justify-between" onclick="window.open('https://www.google.com/maps/search/Miradouro+das+Fontainhas')"><span>波多跨年煙火點導航</span><i class="fas fa-location-arrow text-blue-500"></i></div>
+                <div class="card flex justify-between" onclick="window.open('https://www.google.com/maps/search/Sheikh+Zayed+Grand+Mosque')"><span>阿布達比清真寺導航</span><i class="fas fa-location-arrow text-blue-500"></i></div>
+            </div>
+        </section>
+
+        <section id="guide" class="tab-content">
+            <h2 class="font-bold text-xl mb-4">📖 精選景點與拍照筆記</h2>
+            <div class="card mb-4">
+                <h4 class="font-bold text-purple-600 mb-2">📸 IU 仙氣風格拍照點</h4>
+                <p class="text-sm text-gray-600">• <b>阿布達比清真寺</b>：純白大理石搭配早晨陽光，拍出無暇感。<br>• <b>波多聖靈教堂</b>：側牆藍花磚是全城最顯色拍照點。<br>• <b>辛特拉佩納宮</b>：彩色牆壁建議穿淺色系衣服對比。</p>
+            </div>
+            <div class="card">
+                <h4 class="font-bold text-blue-600 mb-2">🧤 分析師的 ROI 建議</h4>
+                <p class="text-sm text-gray-600">• Innsbruck 纜車：一早去光線最好，回報率最高。<br>• Rede Express：車票預約可省去現場排隊不確定性。</p>
             </div>
         </section>
 
         <section id="tools" class="tab-content">
-            <h2 class="font-bold text-xl mb-4 text-slate-800">💼 預約與 Check-list</h2>
+            <h2 class="font-bold text-xl mb-4">💼 預約代號與檢查清單</h2>
             <div class="card bg-slate-900 text-white mb-4">
-                <p class="text-xs text-gray-400 mb-2">預約代號 / 重要提醒 (可點擊修改)</p>
-                <div class="editable text-xs leading-loose" contenteditable="true" id="codes">
+                <p class="text-xs text-gray-400 mb-2 font-bold uppercase tracking-widest">Diana 的備忘錄 (點擊修改)</p>
+                <div class="editable text-xs leading-relaxed" contenteditable="true" id="final-notes">
                     【交通卡】里斯本: Viva Viagem | 波多: Andante<br>
                     【APP】Bolt | Rede Expressos<br>
-                    12/30 辛特拉雷加來納宮門票: 11:30-12:00<br>
-                    12/31 里斯本至波多大巴票: 17:00<br>
+                    12/30 雷加來納宮: 11:30-12:00<br>
+                    12/31 Rede Express: 17:00<br>
                     01/01 Ideal Clube de Fado: 21:00<br>
                     01/02 證券交易所宮: 14:00 (預計)<br>
                     01/03 馬德里皇宮: 14:30<br>
                     01/04 索菲亞皇后博物館: 12:30
                 </div>
             </div>
-            <button onclick="saveAll()" class="w-full bg-green-500 text-white p-3 rounded-xl font-bold shadow-lg">儲存所有更新數據</button>
+            <button onclick="saveAll()" class="w-full bg-green-500 text-white p-4 rounded-2xl font-bold shadow-lg shadow-green-200">儲存所有數據更新</button>
+            <button onclick="window.open('https://www.oebb.at/en/')" class="w-full mt-2 border border-blue-500 text-blue-500 p-4 rounded-2xl font-bold">開啟 ÖBB 官方網址</button>
         </section>
+
     </main>
 
     <nav class="bottom-nav">
-        <div class="nav-item active" onclick="switchTab('itinerary', this)"><i class="fas fa-route text-lg mb-1"></i><p>執行行程</p></div>
-        <div class="nav-item" onclick="switchTab('guide', this)"><i class="fas fa-book-open text-lg mb-1"></i><p>百科</p></div>
-        <div class="nav-item" onclick="switchTab('maps', this)"><i class="fas fa-map-marked text-lg mb-1"></i><p>地圖</p></div>
-        <div class="nav-item" onclick="switchTab('tools', this)"><i class="fas fa-key text-lg mb-1"></i><p>預約</p></div>
+        <div class="nav-item active" onclick="switchTab('itinerary', this)"><i class="fas fa-route text-xl mb-1"></i><p>精準行程</p></div>
+        <div class="nav-item" onclick="switchTab('maps', this)"><i class="fas fa-map-marked-alt text-xl mb-1"></i><p>地圖導航</p></div>
+        <div class="nav-item" onclick="switchTab('guide', this)"><i class="fas fa-camera text-xl mb-1"></i><p>拍照百科</p></div>
+        <div class="nav-item" onclick="switchTab('tools', this)"><i class="fas fa-clipboard-check text-xl mb-1"></i><p>預約清單</p></div>
     </nav>
 
     <script>
@@ -238,19 +218,13 @@
             btn.classList.add('active');
             window.scrollTo(0,0);
         }
-        function toggleGuide(header) {
-            const body = header.nextElementSibling;
-            body.classList.toggle('open');
-            header.querySelector('i').classList.toggle('fa-chevron-up');
-            header.querySelector('i').classList.toggle('fa-chevron-down');
-        }
         window.onload = () => {
-            const saved = localStorage.getItem('diana_travel_v13');
-            if (saved) document.getElementById('codes').innerHTML = saved;
+            const saved = localStorage.getItem('diana_final_itinerary_v14');
+            if (saved) document.getElementById('final-notes').innerHTML = saved;
         };
         function saveAll() {
-            localStorage.setItem('diana_travel_v13', document.getElementById('codes').innerHTML);
-            alert('所有精算數據已封裝存檔！Diana，祝妳這趟歐洲之旅大成功！❄️');
+            localStorage.setItem('diana_final_itinerary_v14', document.getElementById('final-notes').innerHTML);
+            alert('數據已精確儲存至手機！✅');
         }
     </script>
 </body>
